@@ -16,6 +16,21 @@ namespace Climbing_the_Corporate_Ladder
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        // declares my variables - Connor
+        enum GameStates
+        {
+            Menu,
+            Help,
+            Game
+        }
+        GameStates gameState;
+        SpriteFont font;
+        KeyboardState kbd, prevKbd;
+        Color background;
+        String gameStateTitle;
+        Rectangle screen;
+        Texture2D screenTexture;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -24,7 +39,11 @@ namespace Climbing_the_Corporate_Ladder
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // initializes my variables -Connor
+            screen = new Rectangle(50,50, 700, 380);
+            gameState = GameStates.Menu;
+            gameStateTitle = "Menu";
+            background = Color.Red;
 
             base.Initialize();
         }
@@ -34,7 +53,8 @@ namespace Climbing_the_Corporate_Ladder
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            font = Content.Load<SpriteFont>("Font");
+            screenTexture = Content.Load<Texture2D>("Background");
         }
 
         protected override void UnloadContent()
@@ -48,7 +68,53 @@ namespace Climbing_the_Corporate_Ladder
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            kbd = Keyboard.GetState();
+
+            // Updates the game state -Connor
+
+            // if the game is in the menu state,
+            // it will move to the game when enter is pressed
+            // or to help if "H" is pressed -Connor
+            if (gameState == GameStates.Menu)
+            {
+                if (kbd.IsKeyDown(Keys.Enter) && prevKbd.IsKeyUp(Keys.Enter))
+                {
+                    gameState = GameStates.Game;
+                    background = Color.Green;
+                    gameStateTitle = "Game";
+                }
+                if (kbd.IsKeyDown(Keys.H) && prevKbd.IsKeyUp(Keys.H))
+                {
+                    gameState = GameStates.Help;
+                    background = Color.Orange;
+                    gameStateTitle = "Help";
+                }
+            }
+
+            // if the game is in the game state,
+            // it will move to the menu when escape is pressed -Connor
+            if (gameState == GameStates.Game)
+            {
+                if (kbd.IsKeyDown(Keys.Escape) && prevKbd.IsKeyUp(Keys.Escape))
+                {
+                    gameState = GameStates.Menu;
+                    background = Color.Red;
+                    gameStateTitle = "Menu";
+                }
+            }
+
+            // if the game is in the help state,
+            // it will move to the menu when enter is pressed -Connor
+            if (gameState == GameStates.Help)
+            {
+                if (kbd.IsKeyDown(Keys.Enter) && prevKbd.IsKeyUp(Keys.Enter))
+                {
+                    gameState = GameStates.Menu;
+                    background = Color.Red;
+                    gameStateTitle = "Menu";
+                }
+            }
+            prevKbd = kbd;
 
             base.Update(gameTime);
         }
@@ -57,7 +123,10 @@ namespace Climbing_the_Corporate_Ladder
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            spriteBatch.Draw(screenTexture, screen, background);
+            spriteBatch.DrawString(font, gameStateTitle, Vector2.Zero, Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
