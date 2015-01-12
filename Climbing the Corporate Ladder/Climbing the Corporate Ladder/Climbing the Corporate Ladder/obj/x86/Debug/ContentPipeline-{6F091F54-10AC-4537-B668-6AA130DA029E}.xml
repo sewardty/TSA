@@ -11,13 +11,31 @@
       <Time>2015-01-09T16:32:24.8595014-05:00</Time>
     </Item>
     <Item>
-      <Source>Font.spritefont</Source>
-      <Name>Font</Name>
+      <Source>Menu.png</Source>
+      <Name>Menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Menu.xnb</Output>
+      <Time>2015-01-12T14:24:05.9260079-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Help.png</Source>
+      <Name>Help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Help.xnb</Output>
+      <Time>2015-01-12T14:36:20.2290076-05:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Font.xnb</Output>
-      <Time>2015-01-09T16:30:35.2402316-05:00</Time>
+      <Output>C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2015-01-12T14:36:31.7716678-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

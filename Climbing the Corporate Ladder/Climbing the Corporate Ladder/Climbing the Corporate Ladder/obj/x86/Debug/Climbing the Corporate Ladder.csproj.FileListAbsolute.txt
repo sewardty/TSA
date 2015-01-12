@@ -1,8 +1,10 @@
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.csprojResolveAssemblyReference.cache
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Background.xnb
-C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Font.xnb
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Climbing the Corporate Ladder.exe
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Climbing the Corporate Ladder.pdb
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.exe
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.pdb
+C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Menu.xnb
+C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Help.xnb
+C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\font.xnb

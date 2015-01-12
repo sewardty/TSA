@@ -1,2 +1,4 @@
 Content\Background.xnb
-Content\Font.xnb
+Content\Menu.xnb
+Content\Help.xnb
+Content\font.xnb

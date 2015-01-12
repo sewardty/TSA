@@ -47,6 +47,21 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Game.png">
+      <Name>Game</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Help.png">
+      <Name>Help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Menu.png">
+      <Name>Menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Music.mp3">
       <Name>Music</Name>
       <Importer>Mp3Importer</Importer>
@@ -54,8 +69,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Font.spritefont">
-      <Name>Font</Name>
+    <Compile Include="font.spritefont">
+      <Name>font</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
