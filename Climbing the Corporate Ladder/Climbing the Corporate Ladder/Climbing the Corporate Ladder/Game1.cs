@@ -24,12 +24,10 @@ namespace Climbing_the_Corporate_Ladder
             Game
         }
         GameStates gameState;
-        SpriteFont font;
         KeyboardState kbd, prevKbd;
         Color background;
-        String gameStateTitle;
         Rectangle screen;
-        Texture2D screenTexture;
+        Texture2D menuTexture, helpTexture, gameTexture;
 
         public Game1()
         {
@@ -40,10 +38,9 @@ namespace Climbing_the_Corporate_Ladder
         protected override void Initialize()
         {
             // initializes my variables -Connor
-            screen = new Rectangle(50,50, 700, 380);
+            screen = new Rectangle(0,0, 800, 500);
             gameState = GameStates.Menu;
-            gameStateTitle = "Menu";
-            background = Color.Red;
+            background = Color.White;
 
             base.Initialize();
         }
@@ -53,8 +50,10 @@ namespace Climbing_the_Corporate_Ladder
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            font = Content.Load<SpriteFont>("Font");
-            screenTexture = Content.Load<Texture2D>("Background");
+            // initializes images -Connor
+            menuTexture = Content.Load<Texture2D>("Menu");
+            helpTexture = Content.Load<Texture2D>("Help");
+            gameTexture = Content.Load<Texture2D>("Game");
         }
 
         protected override void UnloadContent()
@@ -64,56 +63,31 @@ namespace Climbing_the_Corporate_Ladder
 
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
             kbd = Keyboard.GetState();
 
             // Updates the game state -Connor
-
-            // if the game is in the menu state,
-            // it will move to the game when enter is pressed
-            // or to help if "H" is pressed -Connor
             if (gameState == GameStates.Menu)
             {
                 if (kbd.IsKeyDown(Keys.Enter) && prevKbd.IsKeyUp(Keys.Enter))
                 {
-                    gameState = GameStates.Game;
-                    background = Color.Green;
-                    gameStateTitle = "Game";
-                }
-                if (kbd.IsKeyDown(Keys.H) && prevKbd.IsKeyUp(Keys.H))
-                {
                     gameState = GameStates.Help;
-                    background = Color.Orange;
-                    gameStateTitle = "Help";
                 }
             }
-
-            // if the game is in the game state,
-            // it will move to the menu when escape is pressed -Connor
-            if (gameState == GameStates.Game)
+            else if (gameState == GameStates.Help)
+            {
+                if (kbd.IsKeyDown(Keys.Enter) && prevKbd.IsKeyUp(Keys.Enter))
+                {
+                    gameState = GameStates.Game;
+                }
+            }
+            else if (gameState == GameStates.Game)
             {
                 if (kbd.IsKeyDown(Keys.Escape) && prevKbd.IsKeyUp(Keys.Escape))
                 {
                     gameState = GameStates.Menu;
-                    background = Color.Red;
-                    gameStateTitle = "Menu";
                 }
             }
 
-            // if the game is in the help state,
-            // it will move to the menu when enter is pressed -Connor
-            if (gameState == GameStates.Help)
-            {
-                if (kbd.IsKeyDown(Keys.Enter) && prevKbd.IsKeyUp(Keys.Enter))
-                {
-                    gameState = GameStates.Menu;
-                    background = Color.Red;
-                    gameStateTitle = "Menu";
-                }
-            }
             prevKbd = kbd;
 
             base.Update(gameTime);
@@ -124,8 +98,23 @@ namespace Climbing_the_Corporate_Ladder
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(screenTexture, screen, background);
-            spriteBatch.DrawString(font, gameStateTitle, Vector2.Zero, Color.White);
+
+            // updates the screen based on the current game state -Connor
+            switch (gameState)
+            {
+                case GameStates.Game:
+                    spriteBatch.Draw(gameTexture, screen, background);
+                    break;
+
+                case GameStates.Help:
+                    spriteBatch.Draw(helpTexture, screen, background);
+                    break;
+
+                case GameStates.Menu: 
+                    spriteBatch.Draw(menuTexture, screen, background);
+                    break;
+            }
+           
             spriteBatch.End();
 
             base.Draw(gameTime);
