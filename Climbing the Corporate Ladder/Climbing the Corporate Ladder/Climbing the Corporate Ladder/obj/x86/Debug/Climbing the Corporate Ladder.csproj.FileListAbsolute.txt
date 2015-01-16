@@ -14,7 +14,7 @@ C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the 
 C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\Menu.xnb
 C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Climbing the Corporate Ladder.exe
 C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Climbing the Corporate Ladder.pdb
-C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.csprojResolveAssemblyReference.cache
 C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.exe
 C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.pdb
+C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\xTile.dll
