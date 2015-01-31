@@ -105,7 +105,8 @@
     <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
-    <Reference Include="xTile">
+    <Reference Include="xTile, Version=2.0.7.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\xTile.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -120,8 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Climbing the Corporate LadderContent\Climbing the Corporate LadderContent.contentproj">
-      <Name>Climbing_the_Corporate_LadderContent</Name>
+      <Name>Climbing the Corporate LadderContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{6F091F54-10AC-4537-B668-6AA130DA029E}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
