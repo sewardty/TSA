@@ -15,12 +15,16 @@ using xTile.Display;
 
 namespace Climbing_the_Corporate_Ladder
 {
-        // declares variables
+    // declares variables
+    
     enum GameStates
     {
         Menu,
         Help,
-        Game
+        Game,
+        Game2,
+        Game3,
+        Game4
     }
 
     public class Game1 : Microsoft.Xna.Framework.Game
@@ -28,19 +32,21 @@ namespace Climbing_the_Corporate_Ladder
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-
-
         GameStates gameState;
         KeyboardState kbd, prevKbd;
         Color background;
         Rectangle screen;
-        Texture2D menuTexture, helpTexture, gameTexture;
+        Texture2D menuTexture, helpTexture, copier;
 
+        
 
         // xTile map, display device reference, and rendering viewpoer
         Map map;
         IDisplayDevice mapDisplayDevice;
         xTile.Dimensions.Rectangle viewport;
+
+        ParticleManager particleManager;
+        Player player;
 
         bool isFullScreen = false;
         bool requestFullScreen = false;
@@ -48,7 +54,7 @@ namespace Climbing_the_Corporate_Ladder
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1024;
+            graphics.PreferredBackBufferWidth = 1366;
             graphics.PreferredBackBufferHeight = 768;
             graphics.IsFullScreen = isFullScreen;
             graphics.ApplyChanges();
@@ -60,17 +66,16 @@ namespace Climbing_the_Corporate_Ladder
         {
 
             // initializes variables
-            screen = new Rectangle(0,0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height);
+            screen = new Rectangle(0, 0, this.Window.ClientBounds.Width, this.Window.ClientBounds.Height);
             gameState = GameStates.Menu;
             background = Color.White;
-
 
             // initialise xTile map display device
             mapDisplayDevice = new XnaDisplayDevice(
                 this.Content, this.GraphicsDevice);
 
             // initialise xTile rendering viewport (hardcoded for now)
-            viewport = new xTile.Dimensions.Rectangle(new xTile.Dimensions.Size(1024, 768));
+            World.viewport = new xTile.Dimensions.Rectangle(new xTile.Dimensions.Size(1366, 768));
 
             base.Initialize();
         }
@@ -79,16 +84,21 @@ namespace Climbing_the_Corporate_Ladder
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-  
+
             // initializes images
             menuTexture = Content.Load<Texture2D>("Menu");
             helpTexture = Content.Load<Texture2D>("Help");
-            gameTexture = Content.Load<Texture2D>("Game");
-   
-            //load xTile map from content pipeline
-            map = Content.Load<Map>("Maps\\Level1");
+            copier = Content.Load<Texture2D>("Copier");
 
-            map.LoadTileSheets(mapDisplayDevice);
+
+            //load xTile map from content pipeline
+            World.map = Content.Load<Map>("Maps\\Level1");
+
+            World.map.LoadTileSheets(mapDisplayDevice);
+
+            particleManager = new ParticleManager();
+            player = new Player(this.Content, new Vector2(350, this.Window.ClientBounds.Height - (48 * 2) - 500), Vector2.Zero, particleManager);
+
         }
 
         protected override void UnloadContent()
@@ -133,18 +143,21 @@ namespace Climbing_the_Corporate_Ladder
                 if (kbd.IsKeyDown(Keys.Escape) && prevKbd.IsKeyUp(Keys.Escape))
                 {
                     gameState = GameStates.Menu;
+
                 }
+                
+            
+               
+
+                player.Update(gameTime);
 
                 // update xTile map for animations etc.
                 // and update viewport for camera movement
-                map.Update(gameTime.ElapsedGameTime.Milliseconds);
+                World.map.Update(gameTime.ElapsedGameTime.Milliseconds);
                 viewport.X++;
             }
 
             prevKbd = kbd;
-
-
-
 
             base.Update(gameTime);
         }
@@ -160,22 +173,22 @@ namespace Climbing_the_Corporate_Ladder
             {
                 case GameStates.Game:
                     // render xTile map
-                    map.Draw(mapDisplayDevice, viewport);
+                    World.map.Draw(mapDisplayDevice, World.viewport);
+                    player.Draw(spriteBatch);
                     break;
 
                 case GameStates.Help:
                     spriteBatch.Draw(helpTexture, screen, background);
                     break;
 
-                case GameStates.Menu: 
+                case GameStates.Menu:
                     spriteBatch.Draw(menuTexture, screen, background);
                     break;
             }
-
-
+            // spriteBatch.Draw(orderPic, )
 
             spriteBatch.End();
-            
+
             base.Draw(gameTime);
         }
     }
