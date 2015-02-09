@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="24992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="25504">
       <assemblyIdentity name="Climbing the Corporate Ladder" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8Owh/5iCy5G7n3SGZK235ge9SuU=</dsig:DigestValue>
+        <dsig:DigestValue>+KDCCrRUHIlZvRYyd+ln59UyyIk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -179,6 +179,15 @@
       <dsig:DigestValue>iuAuViPzTTkOg6efOJ4QqvaE480=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\kick.xnb" size="308011">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>8nluhWWk8kvKfwLhkY/SA9zRA9g=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Maps\Level1.xnb" size="2711">
     <hash>
       <dsig:Transforms>
@@ -195,6 +204,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>cZZ9I7zagWvtTI4QBZxY4AzFAmQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\punch.xnb" size="671283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>JuDrywfX9NfgYDVYnjOcOCLwvGo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\run.xnb" size="559491">

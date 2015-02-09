@@ -3,9 +3,11 @@ Content\Menu.xnb
 Content\run.xnb
 Content\idle.xnb
 Content\jump.xnb
+Content\copier.xnb
 Content\Maps\Level1.xnb
 Content\background1_layer1.xnb
 Content\background1_layer2.xnb
 Content\background1_layer3.xnb
 Content\TileSheet2.xnb
-Content\copier.xnb
+Content\kick.xnb
+Content\punch.xnb

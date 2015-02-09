@@ -76,6 +76,21 @@ namespace Climbing_the_Corporate_Ladder
                                   new Rectangle(464, 95, 212, 302),
                                   1)
                 );
+            animations.Add("kick",
+                  new AnimationStrip(
+                                  content.Load<Texture2D>(@"kick"),
+                                  "kick",
+                                  new Rectangle(0, 0, 242, 342),
+                                  1)
+                );
+            animations.Add("punch",
+                  new AnimationStrip(
+                                  content.Load<Texture2D>(@"punch"),
+                                  "punch",
+                                  new Rectangle(0, 0, 233, 298),
+                                  2));
+            animations["punch"].LoopAnimation = true;
+            animations["punch"].FrameLength = 0.2f;
 
             animations["idle"].LoopAnimation = true;
 
@@ -120,6 +135,7 @@ namespace Climbing_the_Corporate_Ladder
 
             KeyValuePair<xTile.Tiles.Tile, Vector2> ctest;
             xTile.Tiles.Tile tile;
+
             /*
             // Check collision below
             KeyValuePair<xTile.Tiles.Tile, Vector2> ctest = CollisionEdgeTest(new Vector2(this.Location.X, this.Location.Y + this.BoundingBoxRect.Height + 1),
@@ -177,6 +193,14 @@ namespace Climbing_the_Corporate_Ladder
                 {
                     Jump();
                 }
+                if (kb.IsKeyDown(Keys.K))
+                {
+                    currentAnimation = "kick";
+                }
+                if (kb.IsKeyDown(Keys.P))
+                {
+                    currentAnimation = "punch";
+                }
 
                 if (kb.IsKeyDown(Keys.A))
                 {
@@ -213,10 +237,10 @@ namespace Climbing_the_Corporate_Ladder
                 {
                     win = true;
                 }
-                
-                
- 
-                
+
+
+
+
 
 
             }
