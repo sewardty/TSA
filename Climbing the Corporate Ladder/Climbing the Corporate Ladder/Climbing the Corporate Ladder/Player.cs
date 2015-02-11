@@ -91,6 +91,12 @@ namespace Climbing_the_Corporate_Ladder
                                   2));
             animations["punch"].LoopAnimation = true;
             animations["punch"].FrameLength = 0.2f;
+            animations.Add("crouch",
+                  new AnimationStrip(
+                                  content.Load<Texture2D>(@"idle"),
+                                  "crouch",
+                                  new Rectangle(0, 0, 212, 1490),
+                                  1));
 
             animations["idle"].LoopAnimation = true;
 
@@ -200,6 +206,10 @@ namespace Climbing_the_Corporate_Ladder
                 if (kb.IsKeyDown(Keys.P))
                 {
                     currentAnimation = "punch";
+                }
+                if (kb.IsKeyDown(Keys.S))
+                {
+                    currentAnimation = "crouch";
                 }
 
                 if (kb.IsKeyDown(Keys.A))

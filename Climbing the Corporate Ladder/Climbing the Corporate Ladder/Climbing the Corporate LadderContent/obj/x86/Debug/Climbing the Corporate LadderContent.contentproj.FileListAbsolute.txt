@@ -1,2 +1,3 @@
 C:\Users\EAHSCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate LadderContent\obj\x86\Debug\Climbing the Corporate LadderContent.contentprojResolveAssemblyReference.cache
 C:\Users\Connor\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate LadderContent\obj\x86\Debug\Climbing the Corporate LadderContent.contentprojResolveAssemblyReference.cache
+C:\Users\EASHCS\Documents\GitHub\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate LadderContent\obj\x86\Debug\Climbing the Corporate LadderContent.contentprojResolveAssemblyReference.cache
