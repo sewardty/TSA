@@ -17,6 +17,20 @@ namespace Climbing_the_Corporate_Ladder
         public float gravityTimerMax = 10f;
         public float gravity = 25f;
         private ParticleManager particleManager;
+        //cooldowns
+        int punchCD = 0;
+        int kickCD = 0;
+
+        //collsions
+        Rectangle myRect;
+        int picWide = 212;
+        int picHigh = 318;
+
+        //gameStats
+        int life;
+        double dmg;
+
+        bool isPunching = false;
 
         public bool win = false;
 
@@ -26,6 +40,7 @@ namespace Climbing_the_Corporate_Ladder
 
         private ContentManager content;
 
+        //player constructor
         public Player(
            ContentManager content,
            Vector2 location,
@@ -38,8 +53,32 @@ namespace Climbing_the_Corporate_Ladder
             this.particleManager = particleManager;
 
             LoadContent();
+            //gameStats construction
+            myRect = new Rectangle(Convert.ToInt32(location.X), Convert.ToInt32(location.Y), picWide, picHigh);
+            life = 10;
+            dmg = 10.0;
 
             currentAnimation = "idle";
+        }
+        //gameStats accessors
+        public bool Punch
+        {
+            get { return this.isPunching; }
+        }
+        public Rectangle MyRect
+        {
+            get { return this.myRect; }
+            set { this.myRect = value; }
+        }
+        public int Life
+        {
+            get { return this.life; }
+            set { this.life = value; }
+        }
+        public double Dmg
+        {
+            get { return this.dmg; }
+            set { this.dmg = value; }
         }
 
         public void LoadContent()
@@ -130,6 +169,7 @@ namespace Climbing_the_Corporate_Ladder
 
         public override void Update(GameTime gameTime)
         {
+            
             KeyboardState kb = Keyboard.GetState();
 
             gravityTimer += (float)gameTime.ElapsedGameTime.Milliseconds;
@@ -199,17 +239,44 @@ namespace Climbing_the_Corporate_Ladder
                 {
                     Jump();
                 }
-                if (kb.IsKeyDown(Keys.K))
+                if (kb.IsKeyDown(Keys.K) && kickCD <= 5)
                 {
                     currentAnimation = "kick";
+                    isPunching = true;
+                    kickCD = 1;
                 }
-                if (kb.IsKeyDown(Keys.P))
+                if (kb.IsKeyDown(Keys.P) && punchCD <= 5)
                 {
                     currentAnimation = "punch";
+                    isPunching = true;
+                    punchCD = 1;
+
+                    
                 }
+                //cd mechanism
+                if (punchCD > 0)
+                    punchCD++;
+
+                if (kickCD > 0)
+                    kickCD++;
+
+                if (kickCD >= 20)
+                {
+                    kickCD = 0;
+                    isPunching = false;
+                }
+
+                if (punchCD >= 20)
+                {
+                    punchCD = 0;
+                    isPunching = false;
+                }
+
+
                 if (kb.IsKeyDown(Keys.S))
                 {
                     currentAnimation = "crouch";
+                    
                 }
 
                 if (kb.IsKeyDown(Keys.A))
@@ -247,6 +314,9 @@ namespace Climbing_the_Corporate_Ladder
                 {
                     win = true;
                 }
+                
+                
+
 
 
 
@@ -257,5 +327,6 @@ namespace Climbing_the_Corporate_Ladder
 
             base.Update(gameTime);
         }
+        
     }
 }

@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="24576">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="26624">
       <assemblyIdentity name="Climbing the Corporate Ladder" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>0TLq7f/xwiyuXM/qR+hLIUoy6U0=</dsig:DigestValue>
+        <dsig:DigestValue>nhUzJbwSFL8de1nnc7V3QeGc4uE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -222,6 +222,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>iHMU9V/6sBWOvvpHfNpFpqqasy4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\theBall.xnb" size="13875">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>tnTpShU/89sDlcLHn8HcWfrVGvc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\TileSheet2.xnb" size="481723">

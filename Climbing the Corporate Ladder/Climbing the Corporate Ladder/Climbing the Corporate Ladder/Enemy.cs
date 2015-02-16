@@ -14,18 +14,50 @@ namespace Climbing_the_Corporate_Ladder
 {
     class Enemy
     {
-        double life;
-        double dmg;
-        float move;
+        float speed;
+        Vector2 pos;
+        Texture2D enemyPic;
+        Rectangle aRect;
+        int picWide = 60;
+        int picHigh = 60;
         
-        public void TheEnemy()
-        {
-            life = 100.0;
-            dmg = 12.5;
-            move = 10f;
-            
-        }
         
 
+        //enemy constructorino
+        public Enemy(Texture2D pic)
+        {
+            
+            speed = 10f;
+            pos = new Vector2(2400, 400);
+            
+            enemyPic = pic;
+            aRect = new Rectangle(Convert.ToInt32(pos.X), Convert.ToInt32(pos.Y), picWide, picHigh);
+        }
+        public float Speed
+        {
+            get { return this.speed; }
+            set { this.speed = value; }
+        }
+        public Texture2D EnemyPic
+        {
+            get { return this.enemyPic; }
+            set { this.enemyPic = value; }
+        }
+        public Vector2 Pos
+        {
+            get { return this.pos; }
+            set { this.pos = value; }
+        }
+        public void Update()
+        {
+            pos.X -= speed;
+            aRect.X = Convert.ToInt32(pos.X);
+            
+        }
+        public Rectangle ARect
+        {
+            get { return this.aRect; }
+            set { this.aRect = value; }
+        }
     }
 }

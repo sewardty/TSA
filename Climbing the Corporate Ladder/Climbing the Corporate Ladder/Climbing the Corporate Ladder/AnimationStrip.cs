@@ -161,7 +161,7 @@ namespace Climbing_the_Corporate_Ladder
                         finishedPlaying = true;
                     }
                 }
-
+                //needs to be a separate frame timer for the punch/kick animations for the cd to work...should be around -2f
                 frameTimer = 0f;
             }
         }

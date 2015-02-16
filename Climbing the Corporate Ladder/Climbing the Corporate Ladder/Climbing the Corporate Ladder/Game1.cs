@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Collections;
 
 // xTile engine namespaces
 using xTile;
@@ -38,7 +39,10 @@ namespace Climbing_the_Corporate_Ladder
         Rectangle screen;
         Texture2D menuTexture, helpTexture, copier;
 
-        
+        ArrayList enemies = new ArrayList();
+        Texture2D pic;
+        int timer;
+        int interval = 0;
 
         // xTile map, display device reference, and rendering viewpoer
         Map map;
@@ -50,6 +54,14 @@ namespace Climbing_the_Corporate_Ladder
 
         bool isFullScreen = false;
         bool requestFullScreen = false;
+
+        //collsions
+        bool isPunch;
+        Rectangle rekt;
+        Rectangle rect;
+
+        int max = 10;
+        int count = 0;
 
         public Game1()
         {
@@ -99,6 +111,7 @@ namespace Climbing_the_Corporate_Ladder
             particleManager = new ParticleManager();
             player = new Player(this.Content, new Vector2(350, this.Window.ClientBounds.Height - (48 * 2) - 500), Vector2.Zero, particleManager);
 
+            pic = Content.Load<Texture2D>("theBall");
         }
 
         protected override void UnloadContent()
@@ -159,6 +172,56 @@ namespace Climbing_the_Corporate_Ladder
 
             prevKbd = kbd;
 
+
+
+            if (gameState == GameStates.Game)
+            {
+
+                timer = gameTime.TotalGameTime.Seconds;
+                if (timer >= interval)
+                {
+                    if (count <= max)
+                    {
+                        enemies.Add(new Enemy(pic));
+                        count++;
+                    }
+                    //spawn = true;
+
+                    interval += 5;
+
+                }
+                int countIndex = -1;
+                int deadIndex = -1;
+                foreach (Object obj in enemies)
+                {
+                    Enemy unit = (Enemy)obj;
+                    
+                    unit.Update();
+                    isPunch = player.Punch;
+                    rekt = player.MyRect;
+                    rect = unit.ARect;
+                    countIndex++;
+
+                    if (rekt.Intersects(rect) && isPunch == false)
+                    {
+                        player.Life -= 1;
+                        deadIndex = countIndex;
+
+                    }
+                }
+                if (deadIndex != -1)
+                {
+                    enemies.RemoveAt(deadIndex);
+                }
+                if (player.Life <= 0.0)
+                {
+                    //just a test, you can edit the game to exit
+                    gameState = GameStates.Menu;
+                    player.Life = 10;
+
+                }
+
+            }
             base.Update(gameTime);
         }
 
@@ -186,7 +249,12 @@ namespace Climbing_the_Corporate_Ladder
                     break;
             }
             // spriteBatch.Draw(orderPic, )
+            foreach (Object obj in enemies)
+            {
+                Enemy unit = (Enemy)obj;
+                spriteBatch.Draw(unit.EnemyPic, unit.Pos, Color.White);
 
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);

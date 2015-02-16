@@ -1,8 +1,5 @@
-
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Climbing the Corporate Ladder", "Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder.csproj", "{294341C6-BE85-4303-A1FB-3C630D0F4AC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Climbing the Corporate LadderContent", "Climbing the Corporate Ladder\Climbing the Corporate LadderContent\Climbing the Corporate LadderContent.contentproj", "{6F091F54-10AC-4537-B668-6AA130DA029E}"
