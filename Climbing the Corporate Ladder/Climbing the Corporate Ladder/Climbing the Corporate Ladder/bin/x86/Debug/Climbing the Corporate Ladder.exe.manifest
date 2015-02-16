@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="26624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="28160">
       <assemblyIdentity name="Climbing the Corporate Ladder" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>nhUzJbwSFL8de1nnc7V3QeGc4uE=</dsig:DigestValue>
+        <dsig:DigestValue>dirEjKGydSH8DgMeRoujmoXkqEE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -141,6 +141,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>90tZod30C+yqnEmgfoEdUGLL3uI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\black-pen.xnb" size="65723">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Rj73IuNxKQq+Aui0YcD+v8V01gE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\copier.xnb" size="111027">

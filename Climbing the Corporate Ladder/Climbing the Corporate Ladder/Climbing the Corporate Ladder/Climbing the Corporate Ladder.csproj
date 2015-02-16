@@ -124,6 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pen.cs" />
     <Compile Include="AnimationStrip.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="ParticleManager.cs" />

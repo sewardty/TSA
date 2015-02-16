@@ -63,6 +63,16 @@ namespace Climbing_the_Corporate_Ladder
         int max = 10;
         int count = 0;
 
+        Pen pen;
+        Texture2D penImage;
+        int penCD = 2;
+        bool penVisible = false;
+        Rectangle box;
+        Vector2 penPoint;
+        float travSpeed;
+        const int travel = 500;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -112,6 +122,7 @@ namespace Climbing_the_Corporate_Ladder
             player = new Player(this.Content, new Vector2(350, this.Window.ClientBounds.Height - (48 * 2) - 500), Vector2.Zero, particleManager);
 
             pic = Content.Load<Texture2D>("theBall");
+            penImage = Content.Load<Texture2D>("black-pen");
         }
 
         protected override void UnloadContent()
@@ -176,8 +187,37 @@ namespace Climbing_the_Corporate_Ladder
 
             if (gameState == GameStates.Game)
             {
-
                 timer = gameTime.TotalGameTime.Seconds;
+
+                //pen ability mechansism
+                if (timer > penCD)
+                {
+                    //ggcantstopmem8-howtoWin?-dontlk?DWI
+                    if (kbd.IsKeyDown(Keys.R))
+                    {
+                        penVisible = true;//!
+                        pen = new Pen(penImage, player.Location);
+                        box = pen.PenBox;
+                        penPoint = pen.Point;
+                        travSpeed = pen.Speed;
+                        penCD += 2;
+                    }
+                }
+                if (penPoint.X <= player.Location.X + travel)
+                {
+                    penPoint.X += travSpeed;
+                }
+                else
+                {
+                    penVisible = false;
+                }
+
+                if (!penVisible || timer < penCD)
+                {
+                    penPoint.X = rekt.X;
+                }
+
+                //enemy mechanism
                 if (timer >= interval)
                 {
                     if (count <= max)
@@ -208,6 +248,11 @@ namespace Climbing_the_Corporate_Ladder
                         deadIndex = countIndex;
 
                     }
+                    if ((penVisible) && box.Intersects(rect))
+                    {
+                        penVisible = false;
+                        deadIndex = countIndex;
+                    }
                 }
                 if (deadIndex != -1)
                 {
@@ -220,6 +265,13 @@ namespace Climbing_the_Corporate_Ladder
                     player.Life = 10;
 
                 }
+                
+                
+                
+                    
+
+
+                
 
             }
             base.Update(gameTime);
@@ -255,6 +307,11 @@ namespace Climbing_the_Corporate_Ladder
                 spriteBatch.Draw(unit.EnemyPic, unit.Pos, Color.White);
 
             }
+            if (penVisible)
+            {
+                spriteBatch.Draw(penImage, penPoint, Color.White);
+            }
+            
             spriteBatch.End();
 
             base.Draw(gameTime);

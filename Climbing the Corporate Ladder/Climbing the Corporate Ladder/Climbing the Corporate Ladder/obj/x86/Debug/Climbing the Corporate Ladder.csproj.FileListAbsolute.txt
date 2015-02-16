@@ -81,3 +81,4 @@ C:\Users\sewar_000\Desktop\TSA\Climbing the Corporate Ladder\Climbing the Corpor
 C:\Users\sewar_000\Desktop\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.exe
 C:\Users\sewar_000\Desktop\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\obj\x86\Debug\Climbing the Corporate Ladder.pdb
 C:\Users\sewar_000\Desktop\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\theBall.xnb
+C:\Users\sewar_000\Desktop\TSA\Climbing the Corporate Ladder\Climbing the Corporate Ladder\Climbing the Corporate Ladder\bin\x86\Debug\Content\black-pen.xnb
