@@ -69,7 +69,7 @@ namespace Climbing_the_Corporate_Ladder
         Vector2 startLocation;
         bool penVisible = false;
         int penCD;
-        int penRange = 500;
+        int penRange;
         float speed;
 
         Texture2D heart;
@@ -79,6 +79,9 @@ namespace Climbing_the_Corporate_Ladder
         int killScore = 0;
         int timeScore = 0;
         int finalScore = 0;
+
+        int x;
+        static int y;
 
         public Game1()
         {
@@ -212,15 +215,19 @@ namespace Climbing_the_Corporate_Ladder
                             Pen pen = new Pen(penImage, player.Location);
                             penVisible = true;
                             penHitBox = pen.PenBox;
+                            x = penHitBox.X;
+                            y = x;
                             speed = pen.Speed;
+                            penRange = pen.Range;
                             penCD += 2;
-
                         }
                     }
-                    if (penHitBox.X <= player.Location.X + penRange && (penVisible))
+                    if (penHitBox.X <= y + penRange && (penVisible))
                     {
                         penHitBox.X += Convert.ToInt32(speed);
                     }
+                    else
+                        penVisible = false;
                 }
                 //enemy mechanism
                 if (timer >= interval)
@@ -271,8 +278,9 @@ namespace Climbing_the_Corporate_Ladder
 
                 }
             }
-            else
-                gameState = GameStates.Menu;
+            
+                
+
 
             lifeScore = player.Life;
             timeScore = 60 - timer;

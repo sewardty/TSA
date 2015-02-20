@@ -29,7 +29,7 @@ namespace Climbing_the_Corporate_Ladder
             penBox = new Rectangle(350 + (Convert.ToInt32(pos.X - World.viewport.X) - 250), Convert.ToInt32(pos.Y), penWide, penHigh);
             speed = 12f;
             penPic = pic;
-            range = Convert.ToInt32(pos.X) + 500;
+            range = 500;
         }
         public Rectangle PenBox
         {
