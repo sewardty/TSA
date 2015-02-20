@@ -17,7 +17,7 @@ using xTile.Display;
 namespace Climbing_the_Corporate_Ladder
 {
     // declares variables
-    
+
     enum GameStates
     {
         Menu,
@@ -62,16 +62,23 @@ namespace Climbing_the_Corporate_Ladder
 
         int max = 10;
         int count = 0;
+        int killed = 0;
 
-        Pen pen;
+        Rectangle penHitBox;
         Texture2D penImage;
-        int penCD = 2;
+        Vector2 startLocation;
         bool penVisible = false;
-        Rectangle box;
-        Vector2 penPoint;
-        float travSpeed;
-        const int travel = 500;
+        int penCD;
+        int penRange = 500;
+        float speed;
 
+        Texture2D heart;
+        SpriteFont spriteFont;
+
+        int lifeScore = 0;
+        int killScore = 0;
+        int timeScore = 0;
+        int finalScore = 0;
 
         public Game1()
         {
@@ -123,6 +130,10 @@ namespace Climbing_the_Corporate_Ladder
 
             pic = Content.Load<Texture2D>("theBall");
             penImage = Content.Load<Texture2D>("black-pen");
+
+            heart = Content.Load<Texture2D>("heart");
+
+            spriteFont = Content.Load<SpriteFont>("Arial");
         }
 
         protected override void UnloadContent()
@@ -169,9 +180,9 @@ namespace Climbing_the_Corporate_Ladder
                     gameState = GameStates.Menu;
 
                 }
-                
-            
-               
+
+
+
 
                 player.Update(gameTime);
 
@@ -188,35 +199,29 @@ namespace Climbing_the_Corporate_Ladder
             if (gameState == GameStates.Game)
             {
                 timer = gameTime.TotalGameTime.Seconds;
-
-                //pen ability mechansism
-                if (timer > penCD)
+                if (timer <= 60)
                 {
-                    //ggcantstopmem8-howtoWin?-dontlk?DWI
-                    if (kbd.IsKeyDown(Keys.R))
+
+                    //pen ability mechansism
+                    if (timer > penCD)
                     {
-                        penVisible = true;//!
-                        pen = new Pen(penImage, player.Location);
-                        box = pen.PenBox;
-                        penPoint = pen.Point;
-                        travSpeed = pen.Speed;
-                        penCD += 2;
+
+                        if (kbd.IsKeyDown(Keys.R))
+                        {
+                            startLocation = player.Location;
+                            Pen pen = new Pen(penImage, player.Location);
+                            penVisible = true;
+                            penHitBox = pen.PenBox;
+                            speed = pen.Speed;
+                            penCD += 2;
+
+                        }
+                    }
+                    if (penHitBox.X <= player.Location.X + penRange && (penVisible))
+                    {
+                        penHitBox.X += Convert.ToInt32(speed);
                     }
                 }
-                if (penPoint.X <= player.Location.X + travel)
-                {
-                    penPoint.X += travSpeed;
-                }
-                else
-                {
-                    penVisible = false;
-                }
-
-                if (!penVisible || timer < penCD)
-                {
-                    penPoint.X = rekt.X;
-                }
-
                 //enemy mechanism
                 if (timer >= interval)
                 {
@@ -226,16 +231,14 @@ namespace Climbing_the_Corporate_Ladder
                         count++;
                     }
                     //spawn = true;
-
                     interval += 5;
-
                 }
                 int countIndex = -1;
                 int deadIndex = -1;
                 foreach (Object obj in enemies)
                 {
                     Enemy unit = (Enemy)obj;
-                    
+
                     unit.Update();
                     isPunch = player.Punch;
                     rekt = player.MyRect;
@@ -248,15 +251,17 @@ namespace Climbing_the_Corporate_Ladder
                         deadIndex = countIndex;
 
                     }
-                    if ((penVisible) && box.Intersects(rect))
+                    if ((penVisible) && penHitBox.Intersects(rect))
                     {
                         penVisible = false;
                         deadIndex = countIndex;
+                        penHitBox = new Rectangle(0, 0, 1, 1);
                     }
                 }
                 if (deadIndex != -1)
                 {
                     enemies.RemoveAt(deadIndex);
+                    killed++;
                 }
                 if (player.Life <= 0.0)
                 {
@@ -265,17 +270,19 @@ namespace Climbing_the_Corporate_Ladder
                     player.Life = 10;
 
                 }
-                
-                
-                
-                    
-
-
-                
-
             }
+            else
+                gameState = GameStates.Menu;
+
+            lifeScore = player.Life;
+            timeScore = 60 - timer;
+            killScore = killed;
+            finalScore = lifeScore + timeScore + killScore;
+
+
             base.Update(gameTime);
         }
+
 
         protected override void Draw(GameTime gameTime)
         {
@@ -309,12 +316,61 @@ namespace Climbing_the_Corporate_Ladder
             }
             if (penVisible)
             {
-                spriteBatch.Draw(penImage, penPoint, Color.White);
+                spriteBatch.Draw(penImage, penHitBox, Color.White);
             }
-            
+
+            if (player.Life > 0 && gameState == GameStates.Game)
+            {
+                spriteBatch.Draw(heart, new Vector2(10, 700), Color.White);
+
+                if (player.Life > 1)
+                {
+                    spriteBatch.Draw(heart, new Vector2(100, 700), Color.White);
+
+                    if (player.Life > 2)
+                    {
+                        spriteBatch.Draw(heart, new Vector2(190, 700), Color.White);
+
+                        if (player.Life > 3)
+                        {
+                            spriteBatch.Draw(heart, new Vector2(280, 700), Color.White);
+
+                            if (player.Life > 4)
+                            {
+                                spriteBatch.Draw(heart, new Vector2(370, 700), Color.White);
+                                if (player.Life > 5)
+                                {
+                                    spriteBatch.Draw(heart, new Vector2(460, 700), Color.White);
+                                    if (player.Life > 6)
+                                    {
+                                        spriteBatch.Draw(heart, new Vector2(550, 700), Color.White);
+                                        if (player.Life > 7)
+                                        {
+                                            spriteBatch.Draw(heart, new Vector2(640, 700), Color.White);
+                                            if (player.Life > 8)
+                                            {
+                                                spriteBatch.Draw(heart, new Vector2(730, 700), Color.White);
+                                                if (player.Life > 9)
+                                                {
+                                                    spriteBatch.Draw(heart, new Vector2(820, 700), Color.White);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            spriteBatch.DrawString(spriteFont, "Score : " + finalScore, new Vector2(600, 50), Color.White);
+            spriteBatch.DrawString(spriteFont, "player x : "+player.MyRect.X+" local "+World.viewport.X+" play loc x "+ player.Location.X+" pen x = "+penHitBox.X, new Vector2(600, 150), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
+
+           
         }
     }
 }
+

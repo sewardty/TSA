@@ -239,37 +239,36 @@ namespace Climbing_the_Corporate_Ladder
                 {
                     Jump();
                 }
-                if (kb.IsKeyDown(Keys.K) && kickCD <= 5)
+                if (kb.IsKeyDown(Keys.K) && kickCD <= 0)
                 {
                     currentAnimation = "kick";
                     isPunching = true;
                     kickCD = 1;
                 }
-                if (kb.IsKeyDown(Keys.P) && punchCD <= 5)
+                if (kb.IsKeyDown(Keys.P) && punchCD <= 0)
                 {
                     currentAnimation = "punch";
                     isPunching = true;
                     punchCD = 1;
-
-                    
                 }
-                //cd mechanism
+                //cd mechanism - BUG - rapid fire ability, need to fix
                 if (punchCD > 0)
                     punchCD++;
 
                 if (kickCD > 0)
                     kickCD++;
 
-                if (kickCD >= 20)
+                if (kickCD >= 50)
                 {
                     kickCD = 0;
                     isPunching = false;
                 }
 
-                if (punchCD >= 20)
+                if (punchCD >= 50)
                 {
                     punchCD = 0;
                     isPunching = false;
+
                 }
 
 

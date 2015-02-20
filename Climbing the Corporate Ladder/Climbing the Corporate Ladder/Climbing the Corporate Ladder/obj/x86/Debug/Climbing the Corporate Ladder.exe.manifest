@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="28160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Climbing the Corporate Ladder.exe" size="29696">
       <assemblyIdentity name="Climbing the Corporate Ladder" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dirEjKGydSH8DgMeRoujmoXkqEE=</dsig:DigestValue>
+        <dsig:DigestValue>B+TWNv//OdHQ+g3nA8TPpnKCMDM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -116,6 +116,15 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Content\Arial.xnb" size="24238">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>rNqJEmoh6bBKqgZ3X/N+WGWc850=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\background1_layer1.xnb" size="6800187">
     <hash>
       <dsig:Transforms>
@@ -159,6 +168,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>hrATdYgMZql7PlJQNTvlfUxG7gY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\heart.xnb" size="24379">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>KXHSGKQnDiuJQwnnG8qkwVxUI3U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Help.xnb" size="1600187">

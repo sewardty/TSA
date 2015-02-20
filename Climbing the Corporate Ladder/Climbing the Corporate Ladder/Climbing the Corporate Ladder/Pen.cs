@@ -16,29 +16,25 @@ namespace Climbing_the_Corporate_Ladder
     class Pen
     {
         Rectangle penBox;
-        Vector2 point;
         float speed;
         int penHigh = 128;
         int penWide = 128;
         Texture2D penPic;
+        int range;
 
         public Pen(Texture2D pic, Vector2 pos)
         {
-            point = pos;
-            penBox = new Rectangle(Convert.ToInt32(point.X), Convert.ToInt32(point.Y), penWide, penHigh);
+            
+            //penBox = new Rectangle(Convert.ToInt32(pos.X), Convert.ToInt32(pos.Y), penWide, penHigh);
+            penBox = new Rectangle(350 + (Convert.ToInt32(pos.X - World.viewport.X) - 250), Convert.ToInt32(pos.Y), penWide, penHigh);
             speed = 12f;
             penPic = pic;
-
+            range = Convert.ToInt32(pos.X) + 500;
         }
         public Rectangle PenBox
         {
             get { return this.penBox; }
             set { this.penBox = value; }
-        }
-        public Vector2 Point
-        {
-            get { return this.point; }
-     
         }
         public Texture2D PenPic
         {
@@ -57,5 +53,10 @@ namespace Climbing_the_Corporate_Ladder
         {
             get { return this.penWide; }
         }
+        public int Range
+        {
+            get { return this.range; }
+        }
+        
     }
 }
